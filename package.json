@@ -18,5 +18,8 @@
   "homepage": "https://github.com/Kelbach/alley-oop-team-generator#readme",
   "dependencies": {
     "inquirer": "^8.2.0"
+  },
+  "devDependencies": {
+    "jest": "^27.3.1"
   }
 }
