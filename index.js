@@ -196,7 +196,7 @@ const employee = () => {
             } 
         }
     ]).then(employeeQ => {
-        team.push(new Engineer(employeeQ.name, employeeQ.id, employeeQ.email, employeeQ.school));
+        team.push(new Intern(employeeQ.name, employeeQ.id, employeeQ.email, employeeQ.school));
         employee();
     })
     }})
