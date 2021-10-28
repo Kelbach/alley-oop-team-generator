@@ -18,7 +18,7 @@ const generateHTML = teamData => {
             </div>
             <p class-card-text><ul>
                 <li>ID#: ${manager.getId()}</li>
-                <li><a href='mailto: ${manager.getEmail()}'>${manager.getEmail()}</a></li>
+                <li><a href='mailto:${manager.getEmail()}'>${manager.getEmail()}</a></li>
                 <li>Office#: ${manager.getOffice()}</li>
             </ul></p>
         </div>
@@ -38,7 +38,7 @@ const generateHTML = teamData => {
             </div>
             <p class-card-text><ul>
                 <li>ID#: ${engineer.getId()}</li>
-                <li><a href='mailto: ${engineer.getEmail()}'>${engineer.getEmail()}</a></li>
+                <li><a href='mailto:${engineer.getEmail()}'>${engineer.getEmail()}</a></li>
                 <li><a href='https://github.com/${engineer.getGithub()}'>${engineer.getGithub()}</a></li>
             </ul></p>
         </div>
@@ -58,7 +58,7 @@ const generateHTML = teamData => {
             </div>
             <p class-card-text><ul>
                 <li>ID#: ${intern.getId()}</li>
-                <li><a href='mailto: ${intern.getEmail()}'>${intern.getEmail()}</a></li>
+                <li><a href='mailto:${intern.getEmail()}'>${intern.getEmail()}</a></li>
                 <li>Institution: ${intern.getSchool()}</li>
             </ul></p>
         </div>
@@ -73,13 +73,15 @@ const generateHTML = teamData => {
 
     teamHTML.push(teamData.filter(employee => employee.getPosition() === 'Intern')
     .map(intern => generateIntern(intern)));
-}
 
-module.exports = teamHTML => {
-    console.log(teamHTML)
+    return teamHTML.join('');
+};
+
+module.exports = teamData => {
+    console.log(teamData)
     
     return `
-    // ${generateHTML(teamData)}
-    `
+    // ${console.log(generateHTML(teamData))}
+    `;
     
-}
+};
