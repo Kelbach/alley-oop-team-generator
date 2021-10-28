@@ -1,7 +1,9 @@
 const inquirer = require('inquirer');
+const fs = require('fs');
 const Manager = require('./lib/Manager');
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
+const generatePage = require('./src/html-template')
 const team = [];
 
 const manager = () => {
@@ -65,7 +67,9 @@ const manager = () => {
                 }
             }
         }
-    ])
+    ]).then(managerQ => {
+        team.push(new Manager(managerQ.name, managerQ.id, managerQ.email, managerQ.office));
+    })
 }
 
 const employee = () => {
@@ -79,7 +83,7 @@ const employee = () => {
         }
     ]).then(({type}) => {
         if (type === 'Neither. Make my HTML'){
-            console.log(team);
+            return generatePage(team);
         } else if (type === 'Engineer') {
         return inquirer
         .prompt([
@@ -125,7 +129,7 @@ const employee = () => {
         {
             type: 'input',
             name: 'github',
-            message: 'Please provide the GitHub link to your engineer.',
+            message: 'Please provide the GitHub username for your engineer.',
             validate: nameInput => {
                 if (nameInput) {
                 return true;
@@ -202,11 +206,32 @@ const employee = () => {
     }})
 }
 
+
+
+// const writeFile = fileContent => {
+//     return new Promise((resolve, reject) => {
+//         fs.writeFile('./dist/index.html', fileContent, err => {
+//             if (err) {
+//             reject(err);
+//             return;
+//             }
+            
+//             resolve({
+//             ok: true,
+//             message: 'File created!'
+//             });
+//         });
+//     });
+// };
+
 manager()
-.then(managerQ => {
-    team.push(new Manager(managerQ.name, managerQ.id, managerQ.email, managerQ.office));
-})
 .then(employee)
+// .then(pageHTML => {
+//     writeFile(pageHTML);
+// })
+// .catch(err => {
+//     console.log(err)
+// })
 
 // GIVEN a command-line application that accepts user input
 // WHEN I am prompted for my team members and their information
