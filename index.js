@@ -10,7 +10,7 @@ const manager = () => {
     console.log(`
 
     Welcome to the Alley-Oop Team Generator.
-    After a series of questions this application will generate a simple and neat HTML elements for further editing.
+    After a series of questions this application will generate a simple and neat HTML file for further editing.
 
     `)
     return inquirer
