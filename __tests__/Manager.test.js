@@ -7,6 +7,6 @@ test('creates Manager object', () => {
     expect(manager.getId()).toBe('id#');
     expect(manager.getEmail()).toBe('email@email.com');
     expect(manager.getOffice()).toBe('office#');
-    expect(manager.getPosition()).toBe('Manager');
+    expect(manager.getRole()).toBe('Manager');
 });
 

@@ -6,5 +6,6 @@ test('creates employee object', () => {
     expect(manager.name).toBe('Employee');
     expect(manager.id).toBe('id#');
     expect(manager.email).toBe('email@email.com');
+    expect(manager.getRole()).toBe('Employee');
 });
 

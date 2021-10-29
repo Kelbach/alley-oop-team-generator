@@ -63,13 +63,13 @@ const generateHTML = teamData => {
         `
     }
 
-    teamHTML.push(teamData.filter(employee => employee.getPosition() === 'Manager')
+    teamHTML.push(teamData.filter(employee => employee.getRole() === 'Manager')
     .map(manager => generateManager(manager)));
 
-    teamHTML.push(teamData.filter(employee => employee.getPosition() === 'Engineer')
+    teamHTML.push(teamData.filter(employee => employee.getRole() === 'Engineer')
     .map(engineer => generateEngineer(engineer)));
 
-    teamHTML.push(teamData.filter(employee => employee.getPosition() === 'Intern')
+    teamHTML.push(teamData.filter(employee => employee.getRole() === 'Intern')
     .map(intern => generateIntern(intern)));
 
     return teamHTML.join('');

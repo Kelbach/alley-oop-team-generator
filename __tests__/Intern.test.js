@@ -7,5 +7,5 @@ test('creates Intern object', () => {
     expect(intern.getId()).toBe('id#');
     expect(intern.getEmail()).toBe('email@email.com');
     expect(intern.getSchool()).toBe('CWRU Coding Bootcamp');
-    expect(intern.getPosition()).toBe('Intern');
+    expect(intern.getRole()).toBe('Intern');
 });
