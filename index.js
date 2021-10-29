@@ -83,7 +83,8 @@ const employee = () => {
         }
     ]).then(({type}) => {
         if (type === 'Neither. Make my HTML'){
-            return generatePage(team);
+            writeFile(generatePage(team));
+            return;
         } else if (type === 'Engineer') {
         return inquirer
         .prompt([
@@ -208,30 +209,24 @@ const employee = () => {
 
 
 
-// const writeFile = fileContent => {
-//     return new Promise((resolve, reject) => {
-//         fs.writeFile('./dist/index.html', fileContent, err => {
-//             if (err) {
-//             reject(err);
-//             return;
-//             }
+const writeFile = fileContent => {
+    return new Promise((resolve, reject) => {
+        fs.writeFile('./dist/index.html', fileContent, err => {
+            if (err) {
+            reject(err);
+            console.log(err);
+            return;
+            }
             
-//             resolve({
-//             ok: true,
-//             message: 'File created!'
-//             });
-//         });
-//     });
-// };
+            resolve({
+            ok: true
+            });
+        });
+    });
+};
 
 manager()
 .then(employee)
-// .then(pageHTML => {
-//     writeFile(pageHTML);
-// })
-// .catch(err => {
-//     console.log(err)
-// })
 
 // GIVEN a command-line application that accepts user input
 // WHEN I am prompted for my team members and their information
