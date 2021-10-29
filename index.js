@@ -79,10 +79,10 @@ const employee = () => {
             type: 'list',
             message: 'Would you like to add an Engineer or an Intern?',
             name: 'type',
-            choices: ['Engineer', 'Intern', 'Neither. Make my HTML']
+            choices: ['Engineer', 'Intern', 'I am finished building my team']
         }
     ]).then(({type}) => {
-        if (type === 'Neither. Make my HTML'){
+        if (type === 'I am finished building my team'){
             writeFile(generatePage(team));
             return;
         } else if (type === 'Engineer') {
